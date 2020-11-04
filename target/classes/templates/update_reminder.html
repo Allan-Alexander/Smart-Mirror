@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Mirror</title>
+    <link th:href="@{/css/stylesheet.css}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="weather.js"></script>
+    <link rel="stylesheet" type="text/css" href="weather.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+</head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+
+<body>
+<div id="map"></div>
+
+
+
+<div th:replace="fragments/calender.html :: calender"></div>
+
+
+<!--<div class="wrapper">
+    <button href="/saveReminder" type="submit" methods="POST" class="fancy-button bg-gradient1"><span><i class="fa fa-calendar"></i> Save</span></button>
+</div>-->
+<div class="wrapper1">
+    <a href="/" class="fancy-button bg-gradient2"><span><i class="fa fa-calendar"></i> Back </span></a>
+</div>
+
+<div class="form-wrapper">
+<h1 style="background-color: #212121; color: #e53935;">Update Reminder</h1>
+<form action="#"  th:action="@{/saveReminder}"  th:object="${reminder}"  method="POST" style="background-color: #212121">
+    <input type="hidden" th:field = "*{id}">
+    <input type="text" th:field = "*{DMY}"          class = "form-control form-control-lg mb-4 col-8">
+    <input type="text" th:field = "*{mainHeading}"  class = "form-control form-control-lg mb-4 col-8">
+    <input type="text" th:field = "*{description}"  class = "form-control form-control-lg mb-4 col-8">
+    <input type="text" th:field = "*{time}"         class = "form-control form-control-lg mb-4 col-8">
+    <button style="border-radius: 2em;text-align: center;height: 50px;" type="submit" class=" fancy-button btn btn-success btn-lg">   SAVE   </button>
+</form>
+</div>
+
+<div th:replace="fragments/clock.html :: clock"></div>
+
+<script type="text/javascript" th:src="@{/js/calender.js}"></script>
+
+</body>
+<footer>
+    <div th:replace="fragments/weather.html :: weather"></div>
+</footer>
+</html>

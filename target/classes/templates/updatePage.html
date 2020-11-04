@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Mirror</title>
+    <link th:href="@{/css/stylesheet.css}" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="weather.js"></script>
+    <link rel="stylesheet" type="text/css" href="weather.css">
+</head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+
+<body>
+<div id="map"></div>
+
+
+
+<div th:replace="fragments/calender.html :: calender"></div>
+
+
+
+<p class="wrap">Today's Schedule</p>
+<div class="history-tl-container">
+    <ul class="tl">
+        <div th:each="todo:${listReminder}">
+            <li class="tl-item" ng-repeat="item in retailer_history">
+                <div class="timestamp">
+                    <span th:text="${todo.getDMY()}">3rd March 2015</span><br><span th:text="${todo.getTime()}"> 7:00 PM </span>
+                </div>
+                <div class="item-title" th:text="${todo.getMainHeading()}">Start from Shire</div>
+                <div class="item-detail" th:text="${todo.getDescription()}">Don't forget the ring</div>
+                <a th:href="@{/showFormForUpdate/{id} (id=${todo.id})}" style="font-family: 'DejaVu Serif';z-index: 1;" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteReminder/{id} (id=${todo.id})}" style="font-family: 'DejaVu Serif';z-index: 1;" class="btn btn-danger">Delete</a>
+        </div>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <a th:href="@{/addPage}" class="fancy-button bg-gradient1"><span><i class="fa fa-calendar"></i> Add</span></a>
+</div>
+<div class="wrapper1">
+    <a th:href="@{/}" class="fancy-button bg-gradient2"><span><i class="fa fa-calendar"></i> Back </span></a>
+</div>
+
+
+
+
+
+    <!-- th replace clock section-->
+<div th:replace="fragments/clock.html :: clock"></div>
+
+<script type="text/javascript" th:src="@{/js/calender.js}"></script>
+
+</body>
+<footer>
+    <div class="pageContainer1">
+        <div th:if = "${totalPages > 1}">
+            <div class="row col-sm-10" style="color: aliceblue;">
+                <div class="col-sm-2" style="color: aliceblue;">
+                    Total Rows: [[${totalItems-1}]]
+                </div>
+                <div class="col-sm-1" style="color: aliceblue;">
+                    <span th:each = "i: ${#numbers.sequence(1, totalPages)}">
+                        <a th:if = "${currentPage!=i}" th:href="@{'/page2/' + ${i}+'?sortField='+${sortField}+'$sortDir='+${sortDir}}">[[${i}]]</a>
+                        <span th:unless="${currentPage !=i}">[[${i}]]</span> &nbsp;&nbsp;
+                    </span>
+                </div>
+                <div class="col-sm-1" style="color: aliceblue;">
+                    <a th:if="${currentPage < totalPages}" th:href="@{'/page/'+${currentPage+1}+'?sortField='+${sortField}+'$sortDir='+${sortDir}}">Next</a>
+                    <span th:unless="${currentPage < totalPages}"> Next </span>
+                </div>
+                <div class="col-sm-1" style="color: aliceblue;">
+                    <a th:if="${currentPage < totalPages}" th:href="@{'/page/'+${totalPages}+'?sortField='+${sortField}+'$sortDir='+${sortDir}}">Last</a>
+                    <span th:unless="${currentPage < totalPages}"> Last </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/weather.html :: weather"></div>
+</footer>
+</html>

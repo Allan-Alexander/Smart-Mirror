@@ -1,0 +1,16 @@
+<div th:fragment="list" >
+    <p class="wrap">Today's Schedule</p>
+    <div class="history-tl-container">
+        <ul class="tl">
+            <div th:each="todo:${listReminder}">
+                <li class="tl-item" ng-repeat="item in retailer_history">
+                    <div class="timestamp">
+                        <span th:text="${todo.getDMY()}">3rd March 2015</span><br><span th:text="${todo.getTime()}"> 7:00 PM </span>
+                    </div>
+                    <div class="item-title" th:text="${todo.getMainHeading()}">Start from Shire</div>
+                    <div class="item-detail" th:text="${todo.getDescription()}">Don't forget the ring</div>
+            </div>
+            </li>
+        </ul>
+    </div>
+</div>
