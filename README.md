@@ -29,3 +29,6 @@ This project is built in Java using <a href="https://spring.io">Spring Framework
 
 #### UI Update Page
 ![update_page2](https://user-images.githubusercontent.com/55384710/98122363-7cc43480-1ed6-11eb-9433-cca63996be74.png)
+
+#### UI Update Form
+![update_page3](https://user-images.githubusercontent.com/55384710/98122577-ca40a180-1ed6-11eb-9da0-bbd2ac4dfa65.png)
