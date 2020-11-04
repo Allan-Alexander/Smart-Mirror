@@ -22,3 +22,7 @@ This project is built in Java using <a href="https://spring.io">Spring Framework
 2. Monitoring features (temperature and humidity)
 3. Timers to on/off for a specific duration
 4. Hardware interface with IR touch sensor (for the mirror)
+
+
+UI Home Page
+![Page1_Project](https://user-images.githubusercontent.com/55384710/98122139-3078f480-1ed6-11eb-995b-5c532ff0db12.png)
