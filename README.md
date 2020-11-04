@@ -24,5 +24,8 @@ This project is built in Java using <a href="https://spring.io">Spring Framework
 4. Hardware interface with IR touch sensor (for the mirror)
 
 
-UI Home Page
+#### UI Home Page
 ![Page1_Project](https://user-images.githubusercontent.com/55384710/98122139-3078f480-1ed6-11eb-995b-5c532ff0db12.png)
+
+#### UI Update Page
+![update_page2](https://user-images.githubusercontent.com/55384710/98122363-7cc43480-1ed6-11eb-9433-cca63996be74.png)
